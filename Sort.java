@@ -4,8 +4,8 @@ public class Sort {
     public static void main(String[] args) {
         Random rand = new Random();
         int[] unsortedArray = rand.ints(25, 0, 1000).toArray();
-        printStatus("Bubblesort", bubblesort(unsortedArray.clone()));
-        printStatus("Selectionsort", selectionsort(unsortedArray.clone()));
+        printStatus("Bubblesort", bubbleSort(unsortedArray.clone()));
+        printStatus("Selectionsort", selectionSort(unsortedArray.clone()));
     }
     public static void printStatus(String sortingAlgorithm, int[] arr) {
         if(checkArraySorted(arr)) {
@@ -22,7 +22,7 @@ public class Sort {
         }
         return true;
     }
-    public static int[] bubblesort(int[] arr) {
+    public static int[] bubbleSort(int[] arr) {
         for(int x=0; x < arr.length; x++) {
             for(int y=0; y < arr.length-1; y++) {
                 if(arr[y] > arr[y+1]) {
@@ -34,7 +34,7 @@ public class Sort {
         }
         return arr;
     }
-    public static int[] selectionsort(int[] arr) {
+    public static int[] selectionSort(int[] arr) {
         for(int sortedIndex=0; sortedIndex < arr.length-1; sortedIndex++) {
             //Index of smallest number in unsorted part of array
             int minIndex = sortedIndex; 
