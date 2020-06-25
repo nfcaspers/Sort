@@ -6,6 +6,7 @@ public class Sort {
         int[] unsortedArray = rand.ints(25, 0, 1000).toArray();
         printStatus("Bubblesort", bubbleSort(unsortedArray.clone()));
         printStatus("Selectionsort", selectionSort(unsortedArray.clone()));
+        printStatus("insertionSort", insertionSort(unsortedArray.clone()));
     }
     public static void printStatus(String sortingAlgorithm, int[] arr) {
         if(checkArraySorted(arr)) {
@@ -49,6 +50,22 @@ public class Sort {
             int temp = arr[sortedIndex];
             arr[sortedIndex] = arr[minIndex];
             arr[minIndex] = temp;
+        }
+        return arr;
+    }
+    public static int[] insertionSort(int[] arr) {
+        for(int sortedIndex=0; sortedIndex < arr.length-1; sortedIndex++) {
+            int value = arr[sortedIndex+1];
+            for(int x=sortedIndex; x >= 0; x--) {
+                if(value < arr[x]) {
+                    int temp = arr[x];
+                    arr[x] = value;
+                    arr[sortedIndex+1] = temp;
+                    
+                } else {
+                    break;
+                }
+            }
         }
         return arr;
     }
